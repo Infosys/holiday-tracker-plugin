@@ -1,13 +1,12 @@
 apiVersion: backstage.io/v1alpha1
-kind: Plugin
+kind: Component
 metadata:
   name: holiday-tracker-plugin
   description: The Holiday Tracker Plugin for Backstage provides real-time public holiday information for a specified country or region using the Calendarific API. This plugin includes a secure backend proxy configuration to fetch holiday data without exposing your API key.
-  # Example for optional annotations
-  # annotations:
-  #   github.com/project-slug: backstage/backstage
-  #   backstage.io/techdocs-ref: dir:.
+  annotations:
+    github.com/project-slug: Infosys/daily-weather-plugin
+    backstage.io/techdocs-ref: url:https://github.com/Infosys/holiday-tracker-plugin/blob/main/README.md
 spec:
-  type: website
-  owner: Infosys
+  type: plugin
   lifecycle: experimental
+  owner: group:backstage-coe
