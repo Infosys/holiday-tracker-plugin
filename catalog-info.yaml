@@ -1,5 +1,5 @@
 apiVersion: backstage.io/v1alpha1
-kind: Component
+kind: Plugin
 metadata:
   name: holiday-tracker-plugin
   description: The Holiday Tracker Plugin for Backstage provides real-time public holiday information for a specified country or region using the Calendarific API. This plugin includes a secure backend proxy configuration to fetch holiday data without exposing your API key.
