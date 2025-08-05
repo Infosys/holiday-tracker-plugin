@@ -6,5 +6,5 @@ plugins:
 
 nav:
   - Overview:
-      - What is Holiday Tracker Plugin?: 'holidaytracker.md'
+      - What is Holiday Tracker Plugin?: 'index.md'
       - How to install the plugin?: 'holidayplugin.md'
