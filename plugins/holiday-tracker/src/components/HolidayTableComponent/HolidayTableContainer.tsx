@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react';
 import { useApi, configApiRef } from '@backstage/core-plugin-api';
 import { holidayApiRef } from '../../api/HolidayApi';
-import { Card, CardContent, Typography, CircularProgress } from '@material-ui/core';
+import { Card, CardContent } from '@material-ui/core';
+import { LoadingIndicator } from './LoadingIndicator';
+import { ErrorMessage } from './ErrorMessage';
 import { Holiday } from '../../api/types';
 import { HolidayTable } from './HolidayTable';
 
@@ -32,8 +34,8 @@ export const HolidayTableContainer = () => {
     fetchHolidays();
   }, [defaultCountry, holidayApi]);
 
-  if (loading) return <CircularProgress />;
-  if (error) return <Typography color="error">{error}</Typography>;
+  if (loading) return <LoadingIndicator />;
+  if (error) return <ErrorMessage message={error} />;
 
   return (
     <Card>
