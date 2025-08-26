@@ -6,8 +6,10 @@ metadata:
   annotations:
     github.com/project-slug: Infosys/holiday-tracker-plugin
     backstage.io/techdocs-ref: dir:.
+  tags: [plugin, calendar, utility, frontend, holiday]
 spec:
   type: plugin
-  lifecycle: experimental
+  lifecycle: production
   owner: group:admin-group
-  ownedBy: [group:admin-group, group:dev-group]
+  ownedBy: [group:ADMCOE-Team, group:admin-group, group:dev-group]
+  dependsOn: []
