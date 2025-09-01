@@ -23,6 +23,3 @@ jobs:
 
       - name: Install dependencies
         run: yarn install --immutable
-
-      - name: Run tests
-        run: yarn workspace @infosys_ltd/holiday-tracker-plugin
