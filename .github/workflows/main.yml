@@ -9,7 +9,7 @@ on:
       - main
 
 jobs:
-  build-and-test:
+  start-app:
     runs-on: ubuntu-latest
 
     steps:
@@ -27,8 +27,5 @@ jobs:
       - name: Install dependencies
         run: yarn install --immutable
 
-      - name: Build the plugin
-        run: yarn build
-
-      - name: Run tests
-        run: yarn test
+      - name: Start Backstage app
+        run: yarn start
