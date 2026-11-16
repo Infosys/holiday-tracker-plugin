@@ -22,7 +22,6 @@ export class HolidayClient implements HolidayApi {
     const apiUrl = `${serviceUrl}${input}`;
     const response = await this.fetchApi.fetch(apiUrl, init);
     if (!response.ok) {
-      console.error(`Response Error: ${response.statusText}`);
       throw await ResponseError.fromResponse(response);
     }
     const jsonResponse = await response.json();
