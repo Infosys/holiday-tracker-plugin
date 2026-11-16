@@ -31,11 +31,13 @@ proxy:
 ```
 
 **Important Notes:**
+
 - Replace `YOUR_API_KEY` with your Calendarific API key.
 - Replace `YOUR_DEFAULT_LOCATION` with the desired default location (e.g., `IN`).
 - Replace `YOUR_HOLIDAY_YEAR` with the desired year (e.g., `2025`).
 
 This configuration ensures:
+
 - The `api_key` (API key) is securely embedded in the proxy target URL.
 - The `country` parameter specifies the default location for calendar data.
 - The `year` parameter specifies the year for calendar data.
@@ -66,15 +68,54 @@ proxy:
 
 ---
 
-### Example Screenshots
+## Usage
 
-**Holiday Tracker Plugin Configuration:**
+### New frontend system (recommended)
 
-```bash
-import { HolidayTrackerPage } from '@infosys_ltd/holiday-tracker-plugin';
+The plugin is the default export of the package. If your app uses feature discovery
+(`app.packages: all` in `app-config.yaml`), installing the package is enough. Otherwise
+register it explicitly in `packages/app/src/App.tsx`:
+
+```tsx
+import { createApp } from '@backstage/frontend-defaults';
+import holidayTrackerPlugin from '@infosys_ltd/holiday-tracker-plugin';
+
+const app = createApp({
+  features: [holidayTrackerPlugin],
+});
+
+export default app.createRoot();
 ```
-> [!NOTE]
-> You have to import above HolidayTrackerPage and use it wherever its needed.
+
+The plugin provides:
+
+| Extension              | Description                                                           |
+| ---------------------- | --------------------------------------------------------------------- |
+| `api:holiday-tracker`  | The `holidayApiRef` implementation, backed by the Backstage proxy     |
+| `page:holiday-tracker` | The holiday table page, mounted at `/holiday-tracker` with a nav item |
+
+You can change the page path through config:
+
+```yaml
+app:
+  extensions:
+    - page:holiday-tracker:
+        config:
+          path: /holidays
+```
+
+### Legacy frontend system
+
+```tsx
+import { HolidayTrackerPage } from '@infosys_ltd/holiday-tracker-plugin';
+
+// packages/app/src/App.tsx
+<Route path="/holiday-tracker" element={<HolidayTrackerPage />} />;
+```
+
+---
+
+### Example Screenshots
 
 ![Holiday Tracker Page](https://github.com/Infosys/holiday-tracker-plugin/blob/main/plugins/holiday-tracker/src/docs/holidaytrackerplugin.png)
 
